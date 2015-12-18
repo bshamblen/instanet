@@ -1,6 +1,6 @@
 # Instanet
 
-A node.js client for the [Instanet Solutions](https://www.instanetsolutions.com) TransactionDesk third party API.
+A node.js client for the [Instanet Solutions](http://www.instanetsolutions.com) TransactionDesk third party API.
 
 ## Installation
 
