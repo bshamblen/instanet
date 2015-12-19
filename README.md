@@ -65,7 +65,118 @@ Returns a list of transactions for the given `agentId`.
 
 **Sample Response**
 ```javascript
-
+[
+	{
+		"ID": "00000000-3767-4846-8f09-0000088f719d",
+		"TransactionName": "Test Transaction",
+		"TransactionStatusName": "Open",
+		"TransactionTypeName": "Commercial Lease",
+		"PropertyInformation": {
+			"MLSNumber": "",
+			"StreetNumber": "",
+			"StreetName": "",
+			"Address": "",
+			"UnitNumber": "",
+			"City": "",
+			"State": "",
+			"ZipCode": "",
+			"County": "",
+			"Township": "",
+			"TaxNumber": "",
+			"Subdivision": "",
+			"SchoolDistrict": "",
+			"YearBuilt": "",
+			"LotNumber": "",
+			"Block": "",
+			"PageNumber": "",
+			"PlatBook": "",
+			"ZoningClass": "",
+			"LegalDescription": "",
+			"ListPrice": "",
+			"Balance1stMortgage": "",
+			"Balance2ndMortgage": "",
+			"OtherLiens": "",
+			"OtherLiensDesc": "",
+			"TotalEncumbrances": "",
+			"PropertyIncludes": "",
+			"PropertyExcludes": "",
+			"LeasedItems": "",
+			"SupplementalInfo": "",
+			"Deposit": "",
+			"AdditionalDeposit": "",
+			"PurchasePrice": "",
+			"TotalFinancing": "",
+			"Comments": null
+		},
+		"TransactionDates": {
+			"ListDate": null,
+			"ExpirationDate": null,
+			"ClosingDate": null,
+			"OfferDate": null,
+			"OfferExpirationDate": null,
+			"OfferAcceptanceDate": null,
+			"PossessionDate": null,
+			"FundingDate": null,
+			"ApplicationDate": null,
+			"CommitmentDate": null
+		}
+	},
+	{
+		"ID": "00000000-b535-4adc-84e2-477500000163",
+		"TransactionName": "Test Transaction 2",
+		"TransactionStatusName": "Open",
+		"TransactionTypeName": "Commercial Listing",
+		"PropertyInformation": {
+			"MLSNumber": "",
+			"StreetNumber": "",
+			"StreetName": "",
+			"Address": "",
+			"UnitNumber": "",
+			"City": "",
+			"State": "",
+			"ZipCode": "",
+			"County": "",
+			"Township": "",
+			"TaxNumber": "",
+			"Subdivision": "",
+			"SchoolDistrict": "",
+			"YearBuilt": "",
+			"LotNumber": "",
+			"Block": "",
+			"PageNumber": "",
+			"PlatBook": "",
+			"ZoningClass": "",
+			"LegalDescription": "",
+			"ListPrice": "",
+			"Balance1stMortgage": "",
+			"Balance2ndMortgage": "",
+			"OtherLiens": "",
+			"OtherLiensDesc": "",
+			"TotalEncumbrances": "",
+			"PropertyIncludes": "",
+			"PropertyExcludes": "",
+			"LeasedItems": "",
+			"SupplementalInfo": "",
+			"Deposit": "",
+			"AdditionalDeposit": "",
+			"PurchasePrice": "",
+			"TotalFinancing": "",
+			"Comments": null
+		},
+			"TransactionDates": {
+			"ListDate": null,
+			"ExpirationDate": null,
+			"ClosingDate": null,
+			"OfferDate": null,
+			"OfferExpirationDate": null,
+			"OfferAcceptanceDate": null,
+			"PossessionDate": null,
+			"FundingDate": null,
+			"ApplicationDate": null,
+			"CommitmentDate": null
+		}
+	}
+]
 ```
 
 #### getTransactionDetails(*transactionId*, *[callback]*)
@@ -74,6 +185,61 @@ Retrieve the transaction details for a single transaction.
 
 **Sample Response**
 ```javascript
+{
+	"ID": "00000000-3767-4846-8f09-0000088f719d",
+	"TransactionName": "Test Transaction",
+	"TransactionStatusName": "Open",
+	"TransactionTypeName": "Commercial Lease",
+	"PropertyInformation": {
+		"MLSNumber": "",
+		"StreetNumber": "",
+		"StreetName": "",
+		"Address": "",
+		"UnitNumber": "",
+		"City": "",
+		"State": "",
+		"ZipCode": "",
+		"County": "",
+		"Township": "",
+		"TaxNumber": "",
+		"Subdivision": "",
+		"SchoolDistrict": "",
+		"YearBuilt": "",
+		"LotNumber": "",
+		"Block": "",
+		"PageNumber": "",
+		"PlatBook": "",
+		"ZoningClass": "",
+		"LegalDescription": "",
+		"ListPrice": "",
+		"Balance1stMortgage": "",
+		"Balance2ndMortgage": "",
+		"OtherLiens": "",
+		"OtherLiensDesc": "",
+		"TotalEncumbrances": "",
+		"PropertyIncludes": "",
+		"PropertyExcludes": "",
+		"LeasedItems": "",
+		"SupplementalInfo": "",
+		"Deposit": "",
+		"AdditionalDeposit": "",
+		"PurchasePrice": "",
+		"TotalFinancing": "",
+		"Comments": null
+	},
+	"TransactionDates": {
+		"ListDate": null,
+		"ExpirationDate": null,
+		"ClosingDate": null,
+		"OfferDate": null,
+		"OfferExpirationDate": null,
+		"OfferAcceptanceDate": null,
+		"PossessionDate": null,
+		"FundingDate": null,
+		"ApplicationDate": null,
+		"CommitmentDate": null
+	}
+}
 
 ```
 
@@ -84,7 +250,46 @@ List of contacts associated with an agent.
 **Sample Response**
 
 ```javascript
-
+[
+	{
+		"ID": "00000000-d48c-4189-8b3a-000000a7ff2e",
+		"ContactType": "Seller",
+		"FirstName": "Test",
+		"MiddleName": "",
+		"LastName": "Lead",
+		"Email": "",
+		"Company": "",
+		"PreferredName": "",
+		"PreferredSignature": "",
+		"PreferredInitials": "",
+		"StreetNumber": "",
+		"StreetName": "",
+		"City": "",
+		"State": "",
+		"ZipCode": "",
+		"Phone": "",
+		"Fax": ""
+	},
+	{
+		"ID": "00000000-d600-4108-b929-b9a0000056b8",
+		"ContactType": "Buyer",
+		"FirstName": "Test",
+		"MiddleName": "",
+		"LastName": "Lead 2",
+		"Email": "",
+		"Company": "",
+		"PreferredName": "",
+		"PreferredSignature": "",
+		"PreferredInitials": "",
+		"StreetNumber": "",
+		"StreetName": "",
+		"City": "",
+		"State": "",
+		"ZipCode": "",
+		"Phone": "",
+		"Fax": ""
+	}
+]
 ```
 
 #### getContactDetails(*contactId*, *[callback]*)
@@ -94,5 +299,23 @@ Get details for a single contact.
 **Sample Response**
 
 ```javascript
-
+{
+	"ID": "00000000-d48c-4189-8b3a-627f0000002e",
+	"ContactType": "Seller",
+	"FirstName": "Test",
+	"MiddleName": "",
+	"LastName": "Lead",
+	"Email": "",
+	"Company": "",
+	"PreferredName": "",
+	"PreferredSignature": "",
+	"PreferredInitials": "",
+	"StreetNumber": "",
+	"StreetName": "",
+	"City": "",
+	"State": "",
+	"ZipCode": "",
+	"Phone": "",
+	"Fax": ""
+}
 ```
