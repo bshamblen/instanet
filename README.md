@@ -28,6 +28,8 @@ All of the methods below will work with either a standard Javascipt callback fun
 * getTransactionDetails
 * getContacts
 * getContactDetails
+* createContact
+* createTransaction
 
 #### getAgents(*[callback]*)
 
@@ -240,7 +242,6 @@ Retrieve the transaction details for a single transaction.
 		"CommitmentDate": null
 	}
 }
-
 ```
 
 #### getContacts(*agentId*, *[callback]*)
@@ -319,3 +320,144 @@ Get details for a single contact.
 	"Fax": ""
 }
 ```
+
+#### createContact(*agentId*, *contact*, *[callback]*)
+
+Creates a new contact record for the given agentId.
+
+**Example**
+
+```javascript
+var Instanet = require('instanet');
+var api = new Instanet('your InstanetToken');
+var agentId = '00000000-212a-4ad8-8657-84d000000b77';
+
+var contact = {
+	'ContactTypeGUID': Instanet.contactTypes.general,
+	'FirstName': 'Test',
+	'MiddleName': '',
+	'LastName': 'Lead',
+	'Email': '',
+	'Company': '',
+	'PreferredName': '',
+	'PreferredSignature': '',
+	'PreferredInitials': '',
+	'StreetNumber': '',
+	'StreetName': '',
+	'City': '',
+	'State': '',
+	'ZipCode': '',
+	'Phone': '',
+	'Fax': ''
+}
+
+api.createContact(agentId, contact)
+.then(function(response) {
+	console.log('inserted contact', response);
+})
+.error(function(err) {
+	console.log('error inserting contact', err);
+});
+```
+**Available `Instanet.contactTypes`**
+
+* none
+* agent
+* appraisalCompany
+* broker
+* buyer
+* condoAssociationOrHOA
+* escrowCompany
+* general
+* lawyer
+* mortgageAppraiser
+* mortgageCompany
+* prospect
+* seller
+* signingParticipant
+* titleCompany
+
+#### createTransaction(*agentId*, *transaction*, *[callback]*)
+
+Creates a new transaction record for the given agentId.
+
+**Example**
+
+```javascript
+var Instanet = require('instanet');
+var api = new Instanet('your InstanetToken');
+var agentId = '00000000-212a-4ad8-8657-84d000000b77';
+
+var transaction = {
+	'TransactionName': 'Test Transaction',
+	'TransactionStatusName': 'Open',
+	'TransactionTypeGUID': Instanet.transactionTypes.residentialListing,
+	'PropertyInformation': {
+		'MLSNumber': '',
+		'StreetNumber': '123',
+		'StreetName': 'Main St',
+		'Address': '',
+		'UnitNumber': '',
+		'City': 'San Jose',
+		'State': 'CA',
+		'ZipCode': '95125',
+		'County': 'Santa Clara',
+		'Township': '',
+		'TaxNumber': '',
+		'Subdivision': '',
+		'SchoolDistrict': 'San Jose Unified',
+		'YearBuilt': '',
+		'LotNumber': '',
+		'Block': '',
+		'PageNumber': '',
+		'PlatBook': '',
+		'ZoningClass': '',
+		'LegalDescription': '',
+		'ListPrice': '',
+		'Balance1stMortgage': '',
+		'Balance2ndMortgage': '',
+		'OtherLiens': '',
+		'OtherLiensDesc': '',
+		'TotalEncumbrances': '',
+		'PropertyIncludes': '',
+		'PropertyExcludes': '',
+		'LeasedItems': '',
+		'SupplementalInfo': '',
+		'Deposit': '',
+		'AdditionalDeposit': '',
+		'PurchasePrice': '',
+		'TotalFinancing': '',
+		'Comments': null
+	},
+	'TransactionDates': {
+		'ListDate': '2015-12-25',
+		'ExpirationDate': null,
+		'ClosingDate': null,
+		'OfferDate': null,
+		'OfferExpirationDate': null,
+		'OfferAcceptanceDate': null,
+		'PossessionDate': null,
+		'FundingDate': null,
+		'ApplicationDate': null,
+		'CommitmentDate': null
+	}
+}
+
+api.createTransaction(agentId, transaction)
+.then(function(response) {
+	console.log('inserted transaction', response);
+})
+.error(function(err) {
+	console.log('error inserting transaction', err);
+});
+```
+
+**Available `Instanet.transactionTypes`**
+
+* none
+* residentialListing
+* residentialSale
+* residentialLease
+* commercialListing
+* commercialSale
+* commercialLease
