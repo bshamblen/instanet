@@ -26,8 +26,10 @@ All of the methods below will work with either a standard Javascipt callback fun
 * getAgents
 * getTransactions
 * getTransactionDetails
+* getTransactionTypes
 * getContacts
 * getContactDetails
+* getContactTypes
 * createContact
 * createTransaction
 
@@ -244,6 +246,45 @@ Retrieve the transaction details for a single transaction.
 }
 ```
 
+#### getTransactionTypes(*agentId*, *[callback]*)
+
+Get the full list of transaction types for an agent. This list should contain the IDs in the `Instanet.transactionTypes` enumerator, but *could* contain additional, custom values for the given agent.
+
+**Sample Response**
+
+```javascript
+[
+	{
+		"ID": "2d9d021d-beb7-456d-9cae-6ce5486ac3f5",
+		"Name": "- None -"
+	},
+	{
+		"ID": "0e31e091-c168-49b5-9ad7-4ccc7e2b793e",
+		"Name": "Commercial Lease"
+	},
+	{
+		"ID": "775835f7-400e-4c1c-840e-060b25a3f972",
+		"Name": "Commercial Listing"
+	},
+	{
+		"ID": "79979353-2687-4b60-bdb4-a5e4481c9194",
+		"Name": "Commercial Sale"
+	},
+	{
+		"ID": "23971525-9316-4462-a80c-ccaceb3bca8d",
+		"Name": "Residential Lease"
+	},
+	{
+		"ID": "4dff7a8e-6f64-4488-a13d-27199d21e9e3",
+		"Name": "Residential Listing"
+	},
+	{
+		"ID": "5698fac5-5f95-47cb-b231-13507ad61855",
+		"Name": "Residential Sale"
+	}
+]
+```
+
 #### getContacts(*agentId*, *[callback]*)
 
 List of contacts associated with an agent.
@@ -321,6 +362,77 @@ Get details for a single contact.
 }
 ```
 
+#### getContactTypes(*agentId*, *[callback]*)
+
+Get the full list of contact types for an agent. This list should contain the IDs in the `Instanet.contactTypes` enumerator, but *could* contain additional, custom values for the given agent.
+
+**Sample Response**
+
+```javascript
+[
+	{
+		"ID": "05816ead-c2d5-415c-bc1a-fbc20c1d3e61",
+		"Name": "- None -"
+	},
+	{
+		"ID": "43adb182-d837-4de3-8c07-74edfcce458c",
+		"Name": "Agent"
+	},
+	{
+		"ID": "54e6b5df-857a-482d-af95-ec23ae45dec8",
+		"Name": "Appraisal Company"
+	},
+	{
+		"ID": "5310c5e0-8097-4ea5-baf4-b71eb8f63452",
+		"Name": "Broker"
+	},
+	{
+		"ID": "e4d610e0-5a67-4b28-8b3b-c09a1b89c970",
+		"Name": "Buyer"
+	},
+	{
+		"ID": "8b61dbbc-b20d-4b66-82c2-63ce0ddf7dc1",
+		"Name": "Condo Association/HOA"
+	},
+	{
+		"ID": "45e0e3fe-8d60-4884-a97c-962c3668d73c",
+		"Name": "Escrow Company"
+	},
+	{
+		"ID": "b6953e02-6ef4-4050-88cd-66124704fd56",
+		"Name": "General"
+	},
+	{
+		"ID": "340f210d-bfe6-4c24-987c-be710493059a",
+		"Name": "Lawyer"
+	},
+	{
+		"ID": "4f0a54ce-a723-4dfd-b973-760310594b62",
+		"Name": "Mortgage Appraiser"
+	},
+	{
+		"ID": "fe56e87f-5fff-4d02-82a7-8f86fdebef4b",
+		"Name": "Mortgage Company"
+	},
+	{
+		"ID": "5bf32770-4c1e-4e1e-9e89-630815e43668",
+		"Name": "Prospect"
+	},
+	{
+		"ID": "b5e30a48-e161-44b2-8558-bf1991af6a9c",
+		"Name": "Seller"
+	},
+	{
+		"ID": "0416e257-aff0-4256-966b-d8ac81b211b2",
+		"Name": "Signing Participant"
+	},
+	{
+		"ID": "3841556d-13f3-4566-ad97-f21550c546bc",
+		"Name": "Title Company"
+	}
+]
+```
+
 #### createContact(*agentId*, *contact*, *[callback]*)
 
 Creates a new contact record for the given agentId.
@@ -333,7 +445,7 @@ var api = new Instanet('your InstanetToken');
 var agentId = '00000000-212a-4ad8-8657-84d000000b77';
 
 var contact = {
-	'ContactTypeGUID': Instanet.contactTypes.general,
+	'ContactTypeID': Instanet.contactTypes.general,
 	'FirstName': 'Test',
 	'MiddleName': '',
 	'LastName': 'Lead',
@@ -391,7 +503,7 @@ var agentId = '00000000-212a-4ad8-8657-84d000000b77';
 var transaction = {
 	'TransactionName': 'Test Transaction',
 	'TransactionStatusName': 'Open',
-	'TransactionTypeGUID': Instanet.transactionTypes.residentialListing,
+	'TransactionTypeID': Instanet.transactionTypes.residentialListing,
 	'PropertyInformation': {
 		'MLSNumber': '',
 		'StreetNumber': '123',

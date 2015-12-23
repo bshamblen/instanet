@@ -2,6 +2,9 @@ var _ = require('underscore');
 var request = require('request');
 var Promise = require('bluebird');
 
+//Instanet's SSL certificate is invalid. Need to ignore the error.
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
+
 var Instanet = function(authToken) {
 	this.authToken = authToken;
 }
@@ -101,6 +104,14 @@ Instanet.prototype.getTransactionDetails = function(transactionId, callback) {
 
 Instanet.prototype.getContactDetails = function(contactId, callback) {
 	return this.sendGetRequest('/contact/' + contactId, callback);
+}
+
+Instanet.prototype.getTransactionTypes = function(agentId, callback) {
+	return this.sendGetRequest('/transactiontypes/' + agentId, callback);
+}
+
+Instanet.prototype.getContactTypes = function(agentId, callback) {
+	return this.sendGetRequest('/contacttypes/' + agentId, callback);
 }
 
 Instanet.prototype.createContact = function(agentId, contact, callback) {
