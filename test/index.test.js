@@ -12,41 +12,30 @@ describe('Test API Enpoints', function() {
 			assert.equal(Array.isArray(agents), true);
 			assert.notEqual(agents.length, 0);
 			firstAgent = agents[0];
-		})
-		.error(function(err) {
-			assert.equal(err, null);
-		})
-		.finally(function() {
 			done();
-		});
+		})
+		.catch(done);
 	});
 
 	it('Get contact list', function(done) {
 		api.getContacts(firstAgent.ID)
 		.then(function(contacts) {
+			console.log(contacts);
 			assert.equal(Array.isArray(contacts), true);
 			assert.notEqual(contacts.length, 0);
 			firstContact = contacts[0];
-		})
-		.error(function(err) {
-			assert.equal(err, null);
-		})
-		.finally(function() {
 			done();
-		});
+		})
+		.catch(done);
 	});
 
 	it('Get contact detail', function(done) {
 		api.getContactDetails(firstContact.ID)
 		.then(function(contact) {
 			assert.notEqual(contact.ID, null);
-		})
-		.error(function(err) {
-			assert.equal(err, null);
-		})
-		.finally(function() {
 			done();
-		});
+		})
+		.catch(done);
 	});
 
 	it('Get contact types', function(done) {
@@ -54,13 +43,9 @@ describe('Test API Enpoints', function() {
 		.then(function(types) {
 			assert.equal(Array.isArray(types), true);
 			assert.notEqual(types.length, 0);
-		})
-		.error(function(err) {
-			assert.equal(err, null);
-		})
-		.finally(function() {
 			done();
-		});
+		})
+		.catch(done);
 	});
 
 	it('Get transaction list', function(done) {
@@ -69,26 +54,18 @@ describe('Test API Enpoints', function() {
 			assert.equal(Array.isArray(transactions), true);
 			assert.notEqual(transactions.length, 0);
 			firstTransaction = transactions[0];
-		})
-		.error(function(err) {
-			assert.equal(err, null);
-		})
-		.finally(function() {
 			done();
-		});
+		})
+		.catch(done);
 	});
 
 	it('Get transaction detail', function(done) {
 		api.getTransactionDetails(firstTransaction.ID)
 		.then(function(transaction) {
 			assert.notEqual(transaction.ID, null);
-		})
-		.error(function(err) {
-			assert.equal(err, null);
-		})
-		.finally(function() {
 			done();
-		});
+		})
+		.catch(done);
 	});
 
 	it('Get transaction types', function(done) {
@@ -96,13 +73,9 @@ describe('Test API Enpoints', function() {
 		.then(function(types) {
 			assert.equal(Array.isArray(types), true);
 			assert.notEqual(types.length, 0);
-		})
-		.error(function(err) {
-			assert.equal(err, null);
-		})
-		.finally(function() {
 			done();
-		});
+		})
+		.catch(done);
 	});
 
 	it('Create a new transaction', function(done) {
@@ -164,13 +137,9 @@ describe('Test API Enpoints', function() {
 		api.createTransaction(firstAgent.ID, transaction)
 		.then(function(inserted) {
 			assert.notEqual(inserted.ID, null);
-		})
-		.error(function(err) {
-			assert.equal(err, null);
-		})
-		.finally(function() {
 			done();
-		});
+		})
+		.catch(done);
 	});
 
 	it('Create a new contact', function(done) {
@@ -196,12 +165,8 @@ describe('Test API Enpoints', function() {
 		api.createContact(firstAgent.ID, contact)
 		.then(function(inserted) {
 			assert.notEqual(inserted.ID, null);
-		})
-		.error(function(err) {
-			assert.equal(err, null);
-		})
-		.finally(function() {
 			done();
-		});
+		})
+		.catch(done);
 	});
 });
