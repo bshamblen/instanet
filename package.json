@@ -23,5 +23,6 @@
   "engines": {
     "node": "*"
   },
-  "description": "Instanet TransactionDesk Third Party API client"
+  "description": "Instanet TransactionDesk Third Party API client",
+  "license": "MIT"
 }
