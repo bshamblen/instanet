@@ -20,7 +20,6 @@ describe('Test API Enpoints', function() {
 	it('Get contact list', function(done) {
 		api.getContacts(firstAgent.ID)
 		.then(function(contacts) {
-			console.log(contacts);
 			assert.equal(Array.isArray(contacts), true);
 			assert.notEqual(contacts.length, 0);
 			firstContact = contacts[0];
